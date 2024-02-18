@@ -1,6 +1,6 @@
 {
   "name": "modalia",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A reusable React Modal component",
   "main": "dist/modal-component.js",
   "scripts": {
