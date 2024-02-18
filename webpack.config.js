@@ -1,7 +1,8 @@
 module.exports = {
+    mode: "production",
     entry: "./src/Modal.jsx",
     output: {
-        path: "./dist",
+        path: "C:/Users/Tony/Desktop/save formation/Projet-14-Librairie//dist",
         filename: "modal-component.js",
         libraryTarget: "umd",
         library: "ModalComponent"
@@ -15,8 +16,8 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: "style-loader!css-loader"
-            }
+                use: ['style-loader', 'css-loader'],
+            },
         ]
     }
 };
