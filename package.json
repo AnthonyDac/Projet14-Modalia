@@ -1,0 +1,26 @@
+{
+  "name": "modalia",
+  "version": "1.0.1",
+  "description": "A reusable React Modal component",
+  "main": "dist/modal-component.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "jest"
+  },
+  "keywords": [
+    "react",
+    "modal"
+  ],
+  "author": "Daccarett Anthony",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^9.1.3",
+    "webpack": "^5.90.2",
+    "webpack-cli": "^5.1.4"
+  }
+}
