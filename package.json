@@ -2,7 +2,7 @@
   "name": "modalia",
   "version": "1.0.2",
   "description": "A reusable React Modal component",
-  "main": "dist/modal-component.js",
+  "main": "dist/modalia.js",
   "scripts": {
     "build": "webpack",
     "test": "jest"

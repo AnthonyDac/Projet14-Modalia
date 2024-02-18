@@ -3,7 +3,7 @@ module.exports = {
     entry: "./src/Modal.jsx",
     output: {
         path: "C:/Users/Tony/Desktop/save formation/Projet-14-Librairie//dist",
-        filename: "modal-component.js",
+        filename: "modalia.js",
         libraryTarget: "umd",
         library: "ModalComponent"
     },
