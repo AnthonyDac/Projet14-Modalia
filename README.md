@@ -16,7 +16,7 @@ Import the Modal library in the file where you want to use it:
 
 ```javascript
 import React from "react";
-import Modal from "modalia";
+import Modalia from "modalia";
 ```
 
 Utilize the Modal component within your React component, providing necessary props:
@@ -62,7 +62,8 @@ The Modal component provides various props for customization:
 - `showLoadingBar` (boolean): Displays a loading bar indicating the auto-close progress.
 - `fillColor` (string): Custom background color for the loading bar.
 - `position` (string): Defines the position of the modal.
-  Note: `autoCloseTime` must be defined to set `showCloseButton` as `false`.
+
+Note: `autoCloseTime` must be defined to set `showCloseButton` as `false`.
 
 `position` possibilities :
 
@@ -79,7 +80,7 @@ The Modal component provides various props for customization:
 Example :
 
 ```javascript
-<Modal
+<Modalia
   show={true}
   title="Custom Modal"
   onClose={() => this.closeModal}

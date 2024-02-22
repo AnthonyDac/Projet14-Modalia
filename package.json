@@ -1,6 +1,6 @@
 {
   "name": "modalia",
-  "version": "1.0.2",
+  "version": "1.0.27",
   "description": "A reusable React Modal component",
   "main": "dist/modalia.js",
   "scripts": {
@@ -18,9 +18,9 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
-    "babel-core": "^6.26.3",
     "babel-loader": "^9.1.3",
     "css-loader": "^6.10.0",
     "style-loader": "^3.3.4",

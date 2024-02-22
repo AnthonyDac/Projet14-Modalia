@@ -1,70 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Modal.css';
 
-const Modal = (props) => {
-    const [timerWidth, setTimerWidth] = useState('100%');
-    const [hideModal, setHideModal] = useState(false);
+class Modalia extends React.Component {
+    render() {
+        const { show, position, title, commentary, backgroundColor, titleColor, commentaryColor } = this.props;
+        let contentClasses = `modal-content ${position}`;
+        let modalClasses = `modal ${position || 'center'}`;
+        const defaultColor = '#282828';
+        const defaultTitleColor = '#fff';
+        const defaultCommentaryColor = 'rgba(255, 255, 255, 0.8)';
 
-    useEffect(() => {
-        if (props.show && props.autoCloseTime) {
-            const endTime = Date.now() + props.autoCloseTime;
-            updateTimer(endTime);
-
-            const timerInterval = setInterval(() => {
-                updateTimer(endTime);
-            }, 10);
-
-            return () => {
-                clearInterval(timerInterval);
-            };
-        }
-    }, [props.show, props.autoCloseTime]);
-
-    const updateTimer = (endTime) => {
-        const currentTime = Date.now();
-        const remainingTime = Math.max(0, endTime - currentTime);
-        const percentage = (remainingTime / props.autoCloseTime) * 100;
-        setTimerWidth(`${percentage}%`);
-
-        if (remainingTime === 0) {
-            closeModal();
-        }
-    };
-
-    const closeModal = () => {
-        setHideModal(true);
-        modalClasses = `modal hiding`;
-        setTimeout(() => {
-            setHideModal(false);
-            props.onClose(); // Appeler la fonction onClose fournie par les props
-        }, 1000);
-    };
-
-    var modalClasses = `modal ${props.position || 'center'} ${hideModal ? 'hide' : ''}`;
-    var contentClasses = `modal-content ${props.position || 'center'}`;
-
-    return (
-        <>
-            {props.show ? (
-                <div className={modalClasses}>
-                    <div className={contentClasses}>
-                        <p className='title'>{props.title}</p>
-                        {props.commentary ? <p className='commentary'>{props.commentary}</p> : null}
-                        {props.showCloseButton ? (
-                            <span className="close" onClick={closeModal}>
-                                &times;
-                            </span>
-                        ) : null}
-                        {props.autoCloseTime && props.showLoadingBar ? (
-                            <div className='timer-bar'>
-                                <div className='timer-bar-fill' style={{ width: timerWidth, background: props.fillColor || '#ffd6ff' }}></div>
-                            </div>
-                        ) : null}
+        return (
+            <>
+                {show ? <div className={modalClasses}>
+                    <div className={contentClasses} style={{ background: backgroundColor ? backgroundColor : defaultColor }}>
+                        <p style={{ color: titleColor ? titleColor : defaultTitleColor }} className='title'>{title}</p>
+                        {commentary ? <p className='commentary' style={{ color: commentaryColor ? commentaryColor : defaultCommentaryColor }}>{commentary}</p> : null}
+                        <span className="close" onClick={() => window.dispatchEvent(new CustomEvent('modalClose'))}>
+                            &times;
+                        </span>
                     </div>
-                </div>
-            ) : null}
-        </>
-    );
-};
+                </div> : null}
+            </>
+        );
+    }
+}
 
-export default Modal;
+export default Modalia;
