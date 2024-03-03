@@ -34,16 +34,18 @@ const YourComponent = () => {
     this.setState({ showingModal: false });
   };
 
+  componentDidMount() {
+    window.addEventListener('modalClose', this.closeModal);
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('modalClose', this.closeModal);
+  };
+
   return (
     <div>
       {/* Your existing components */}
-      <Modal
-        show={true}
-        title="Example Modal"
-        commentary="Example commentary"
-        onClose={() => this.closeModal}
-        // Additional props...
-      />
+      <Modalia title="Example" commentary='👍 Great example.' position='center' backgroundColor="" titleColor="" commentaryColor="" show={this.state.showingModal} />
     </div>
   );
 };
@@ -55,15 +57,11 @@ The Modal component provides various props for customization:
 
 - `show` (boolean): Controls the visibility of the modal.
 - `title` (string): Specifies the title of the modal.
-- `onClose` (function): Defines a callback function when the modal is closed.
+- `titleColor` (string): Specifies color of title text.
 - `commentary` (string): Adds additional text or commentary to the modal.
-- `showCloseButton` (boolean): Determines whether to display a close button.
-- `autoCloseTime` (number): Sets the auto-close time for the modal in milliseconds.
-- `showLoadingBar` (boolean): Displays a loading bar indicating the auto-close progress.
-- `fillColor` (string): Custom background color for the loading bar.
+- `commentaryColor` (string): Specifies color of commentary text.
+- `backgroundColor` (string): Custom background color.
 - `position` (string): Defines the position of the modal.
-
-Note: `autoCloseTime` must be defined to set `showCloseButton` as `false`.
 
 `position` possibilities :
 
@@ -81,15 +79,13 @@ Example :
 
 ```javascript
 <Modalia
-  show={true}
-  title="Custom Modal"
-  onClose={() => this.closeModal}
-  commentary="This is a custom modal."
-  showCloseButton={true}
-  autoCloseTime={5000}
-  showLoadingBar={true}
-  fillColor="#aabbcc"
-  position="corner-top-right"
+  title="Example"
+  commentary="👍 Great example."
+  position="center"
+  backgroundColor=""
+  titleColor=""
+  commentaryColor=""
+  show={this.state.showingModal}
 />
 ```
 
